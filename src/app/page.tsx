@@ -7,6 +7,7 @@ export default function GiftReveal() {
     const [isRevealed, setIsRevealed] = useState(false);
     const [shakeGift, setShakeGift] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const [shakeCount, setShakeCount] = useState(0);
 
     useEffect(() => {
         setMounted(true);
@@ -35,6 +36,7 @@ export default function GiftReveal() {
 
     const handleShake = () => {
         setShakeGift(true);
+        setShakeCount((prevCount) => prevCount + 1);
         if (typeof window !== "undefined") {
             const snowflakes = document.querySelectorAll(".snowflake");
             snowflakes.forEach((flake) => {
@@ -101,12 +103,18 @@ export default function GiftReveal() {
                             >
                                 Rist på gaven
                             </button>
-                            <button
-                                onClick={handleReveal}
-                                className='bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-3 sm:px-4 text-sm sm:text-base rounded-full transition duration-300 ease-in-out transform hover:scale-105 border-2 border-white'
-                            >
-                                Åpne gaven
-                            </button>
+                            {shakeCount >= 10 ? (
+                                <button
+                                    onClick={handleReveal}
+                                    className='bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-3 sm:px-4 text-sm sm:text-base rounded-full transition duration-300 ease-in-out transform hover:scale-105 border-2 border-white'
+                                >
+                                    Åpne gaven
+                                </button>
+                            ) : (
+                                <p className='text-white text-center text-sm sm:text-base'>
+                                    Rist gaven {10 - shakeCount} ganger til!
+                                </p>
+                            )}
                         </div>
                     </div>
                 </div>
