@@ -94,16 +94,16 @@ export default function GiftReveal() {
                             En spesiell gave venter på deg! Er du klar til å
                             avsløre den?
                         </p>
-                        <div className='relative flex justify-between w-full mt-4 z-20 px-4'>
+                        <div className='relative flex flex-col sm:flex-row justify-between w-full mt-4 z-20 px-2 sm:px-4 space-y-4 sm:space-y-0 sm:space-x-4'>
                             <button
                                 onClick={handleShake}
-                                className='bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 border-2 border-white'
+                                className='bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 sm:px-4 text-sm sm:text-base rounded-full transition duration-300 ease-in-out transform hover:scale-105 border-2 border-white'
                             >
                                 Rist på gaven
                             </button>
                             <button
                                 onClick={handleReveal}
-                                className='bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 border-2 border-white'
+                                className='bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-3 sm:px-4 text-sm sm:text-base rounded-full transition duration-300 ease-in-out transform hover:scale-105 border-2 border-white'
                             >
                                 Åpne gaven
                             </button>
